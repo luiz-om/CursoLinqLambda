@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Loja.Domain
 {
-   public class Produto
+    public class Produto
     {
         private List<Produto> produtos;
 
@@ -15,19 +15,29 @@ namespace Loja.Domain
             produtos = new List<Produto>();
         }
 
-        public List<Produto> Listar()
+        public List<Produto> ListarFrutas()
         {
-            produtos.Add(new Produto { ProdutoId=Guid.NewGuid(), Nome ="Maracuja", Quantidade= 12, Valor= 14, DataVencimento = DateTime.Now.AddDays(15)});
-            produtos.Add(new Produto { ProdutoId=Guid.NewGuid(), Nome ="Banana", Quantidade= 112, Valor= 2, DataVencimento = DateTime.Now.AddDays(12)});
-            produtos.Add(new Produto { ProdutoId=Guid.NewGuid(), Nome ="Maça", Quantidade= 2, Valor= 25, DataVencimento = DateTime.Now.AddDays(15)});
-            produtos.Add(new Produto { ProdutoId=Guid.NewGuid(), Nome ="Uva", Quantidade= 115, Valor= 4, DataVencimento = DateTime.Now.AddDays(7)});
+            produtos.Add(new Produto { Nome = "Maracuja", Valor = 14, Categoria = "frutas" });
+            produtos.Add(new Produto { Nome = "Banana", Valor = 2, Categoria = "frutas" });
+            produtos.Add(new Produto { Nome = "Maça", Valor = 25, Categoria = "frutas" });
+            produtos.Add(new Produto { Nome = "Uva", Valor = 4, Categoria = "frutas" });
             return produtos;
         }
-        public Guid ProdutoId { get; set; }
+
+        public List<Produto> ListarEletronicos()
+        {
+            produtos.Add(new Produto { Nome = "Maracuja", Valor = 14, Categoria = "eletronicos" });
+            produtos.Add(new Produto { Nome = "Banana", Valor = 2, Categoria = "eletronicos" });
+            produtos.Add(new Produto { Nome = "Maça", Valor = 25, Categoria = "eletronicos" });
+            produtos.Add(new Produto { Nome = "Uva", Valor = 4, Categoria = "eletronicos" });
+            return produtos;
+        }
+
         public string Nome { get; set; }
-        public int Quantidade { get; set; }
+
         public decimal Valor { get; set; }
-        public DateTime DataVencimento { get; set; }
+        public string Categoria { get; set; }
+
 
     }
 }
